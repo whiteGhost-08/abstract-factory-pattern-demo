@@ -13,13 +13,13 @@
         /// <remarks>
         /// Throws an exception if the specified database type is invalid.
         /// </remarks>
-        public static IDatabaseConnectionFactory GetFactory(string databaseType)
+        public static IDatabaseConnectionFactory GetFactory( string databaseType )
         {
             return databaseType switch
             {
                 "mysql" => new MySQLDatabaseConnectionFactory(),
                 "postgresql" => new PostgreSQLDatabaseConnectionFactory(),
-                _ => throw new Exception("Invalid database type"),
+                _ => throw new Exception( "Invalid database type" ),
             };
         }
     }

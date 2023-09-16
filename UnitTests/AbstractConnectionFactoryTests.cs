@@ -1,3 +1,4 @@
+﻿global using Microsoft.VisualStudio.TestTools.UnitTesting;
 using AbstractFactoryDemo;
 using NUnit.Framework;
 using Assert = NUnit.Framework.Assert;
@@ -17,11 +18,11 @@ namespace UnitTests
         public void GetFactory_ShouldReturnFactoryForSpecifiedDatabaseType()
         {
             // Arrange
-            IDatabaseConnectionFactory factory = AbstractConnectionFactory.GetFactory("mysql"); // Get connection factory for MySQL database
-            // Act
-            
+            IDatabaseConnectionFactory factory = AbstractConnectionFactory.GetFactory( "mysql" ); // Get connection factory for MySQL database
+                                                                                                  // Act
+
             // Assert
-            Assert.That(factory, Is.InstanceOf<MySQLDatabaseConnectionFactory>());
+            Assert.That( factory , Is.InstanceOf<MySQLDatabaseConnectionFactory>() );
         }
         /// <summary>
         /// Ensures that GetFactory throws an exception for an invalid database type.
@@ -35,7 +36,7 @@ namespace UnitTests
             Exception? exception = Assert.Throws<Exception>( () => AbstractConnectionFactory.GetFactory( "invalid" ) );
 
             // Assert
-            Assert.AreEqual("Invalid database type", exception?.Message);
+            Assert.AreEqual( "Invalid database type" , exception?.Message );
         }
     }
 }
